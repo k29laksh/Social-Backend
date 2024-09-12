@@ -1,5 +1,6 @@
 import express from "express";
 import {
+  updateProfile,
   UserLogin,
   UserLogout,
   UserSignup,
@@ -11,5 +12,5 @@ const router = express.Router();
 router.route("/signup").post(UserSignup);
 router.route("/login").post(UserLogin);
 router.route("/logout").post(authMiddleware, UserLogout);
-router.route("/update-profile",upload.fields[{'name':'image',maxCount:1},{'name':'coverImage',maxCount:1}]).post(authMiddleware, UserLogout);
+router.route("/update-profile/:userId").patch(upload.fields([{name:'image',maxCount:1},{name:'coverImage',maxCount:1}]),authMiddleware, updateProfile);
 export default router;
