@@ -16,6 +16,18 @@ const userSchema = new mongoose.Schema(
       trim: true,
       index:true
     },
+    image: {
+      type: String,
+    },
+    coverImage: {
+      type: String,
+    },
+    bio: {
+      type: String,
+    },
+    location: {
+      type: String,
+    },
     email: {
       type: String,
       required: true,
