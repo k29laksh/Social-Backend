@@ -4,6 +4,7 @@ import dotenv from 'dotenv'
 import { dbconnect } from './db/index.js';
 import cookieParser from 'cookie-parser';
 import UserRoute from './routes/userRoutes.js';
+import PostRoute from './routes/postRoutes.js'
 dotenv.config()
 
 const app=express();
@@ -15,6 +16,7 @@ app.use(cookieParser());
 dbconnect()
 
 app.use('/api/v1/users',UserRoute)
+app.use('/api/v1/post',PostRoute)
 const port= process.env.PORT || 5000
 
 app.listen((port),()=>{
